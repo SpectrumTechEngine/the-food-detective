@@ -255,9 +255,29 @@
       .replace(/\bwine gums?\b|\broot beers?\b|\bginger beers?\b|\bbutterbeer\b/g,' ')
       .replace(/\bpasteuri[sz]ed\b/g,' pasteurised ');
   }
+  // The alcohol % can be stored under a few different names in the database
+  function alcoholOf(n){
+    n=n||{};
+    for(const k of ['alcohol_100g','alcohol','alcohol_value','alcohol_serving']){
+      const v=parseFloat(String(n[k]??'').replace(',','.'));
+      if(Number.isFinite(v))return v;
+    }
+    return undefined;
+  }
+  // Words in a product's NAME that mean it's an alcoholic drink (English and a few other languages)
+  const DRINK_NAME=/\b(beers?|lagers?|stouts?|ales?|ipa|pale ale|pilsners?|pils|porter|bitter|ciders?|cidre|bier|biere|bieres|cerveza|birra|wines?|vino|vin|wein|prosecco|champagne|cava|rose wine|red wine|white wine|sparkling wine|merlot|shiraz|syrah|malbec|cabernet|sauvignon|chardonnay|pinot|rioja|tempranillo|grenache|zinfandel|riesling|moscato|chianti|montepulciano|primitivo|albarino|verdejo|vodka|whisk(?:e)?y|bourbon|scotch|gin|rum|brandy|cognac|tequila|liqueur|baileys|sherry|port wine|vermouth|aperol|hard seltzer|alcopop)\b/;
+  // Drink brands commonly sold in Ireland. Brand-only products ("Heineken", "Jameson") have no drink word in the name.
+  const DRINK_BRANDS_DISTINCT=['guinness','heineken','carlsberg','budweiser','bud light','coors','corona','peroni','stella artois','hop house','smithwicks','smithwick s','beamish','murphys','murphy s irish stout','bulmers','magners','kopparberg','rekorderlig','strongbow','orchard thieves','jameson','tullamore','bushmills','redbreast','teeling','jack daniel','jack daniels','jim beam','smirnoff','absolut','bombay sapphire','hendricks','hendrick s','dingle','captain morgan','bacardi','malibu','baileys','carolans','kahlua','disaronno','jagermeister','southern comfort','blossom hill','yellow tail','jacob s creek','jacobs creek','casillero del diablo','hardys','echo falls','wolf blass','moet','lanson','freixenet','wkd','buckfast','desperados','san miguel','estrella damm','asahi','kronenbourg','erdinger','paulaner','brewdog','rockshore','five lamps','o hara s','kinnegar','white claw','heverlee','birra moretti','moretti','sol','amstel','beck s','becks','carling','tennents','hobgoblin','old speckled hen','jagerbomb','prosecco','whitley neill','gordons','gordon s','tanqueray','glenfiddich','johnnie walker','famous grouse','grants','chivas','sailor jerry','kraken','tequila rose','sheridans','pimm s','pimms','aperol','martini','lambrini','babycham','apothic','campo viejo','mcguigan','oyster bay','villa maria','cono sur','gallo','barefoot wine'];
+  const DRINK_BRANDS_FIELD_ONLY=['powers','paddy','harp','tiger','miller','barefoot','sol','carling','hardys','jameson'];
+  function brandIsDrink(brandT,nameT){
+    const inBrand=DRINK_BRANDS_DISTINCT.concat(DRINK_BRANDS_FIELD_ONLY).some(b=>has(brandT,b));
+    const inName=DRINK_BRANDS_DISTINCT.some(b=>b.length>=5&&has(nameT,b));
+    return inBrand||inName;
+  }
+  const NOT_A_DRINK=/\b(battered|batter|ginger ale|raisin|baba|truffles?|flavou?r(?:ed)?|vinegar|gums?|jelly|sauce|gravy|marinade|cake|pudding|chocolate|ice cream|crisps?)\b/;
   function pregnancyCheck(parts){
-    const raw=String((parts.text||'')+' '+(parts.categories||'')).toLowerCase();
-    const alcoholFree=/alcohol[ -]free|non[ -]alcoholic|de[ -]?alcoholi[sz]ed|\b0[.,]0 ?%/.test(raw);
+    const raw=String((parts.text||'')+' '+(parts.name||'')+' '+(parts.categories||'')).toLowerCase();
+    const alcoholFree=/alcohol[ -]free|non[ -]alcoholic|de[ -]?alcoholi[sz]ed|zero alcohol|alcohol ?0[.,]0|(?:^|[^0-9.,])0[.,]0(?:[^0-9]|$)|\b0 ?% ?(?:vol|abv|alc)/.test(raw);
     const t=pregText(parts.text);
     const cats=pregText(parts.categories||'');
     const all=t+' '+cats;
@@ -273,9 +293,16 @@
     const abv=Number(parts.alcohol);
     const ocrAbv=(all.match(/(\d+(?:[.,]\d+)?) ?% ?(?:vol|abv|alc)\b/)||all.match(/\balc\.? ?(\d+(?:[.,]\d+)?) ?%/)||[])[1];
     const pct=Number.isFinite(abv)&&abv>0?abv:(ocrAbv?parseFloat(String(ocrAbv).replace(',','.')):0);
-    const isDrink=/\b(alcoholic beverages?|alcoholic drinks?|beers?|wines?|spirits|ciders?|liqueurs?|lagers?|stouts?|whisk(?:e)?ys?|vodkas?|gins?|rums?|prosecco|champagnes?)\b/.test(cats);
+    const nameT=pregText(parts.name||'');
+    const brandT=pregText(parts.brand||'');
+    const brandDrink=brandIsDrink(brandT,nameT);
+    const isDrink=/\b(alcoholic beverages?|alcoholic drinks?|beers?|wines?|spirits|ciders?|liqueurs?|lagers?|stouts?|ales|whisk(?:e)?ys?|vodkas?|gins?|rums?|prosecco|champagnes?|bieres?|bier|vins?|vinos?|wein|sparkling wines?|red wines?|white wines?|rose wines?)\b/.test(cats)
+      ||(DRINK_NAME.test(nameT)&&!NOT_A_DRINK.test(nameT))
+      ||(brandDrink&&!NOT_A_DRINK.test(nameT));
     if(pct>0.5||(isDrink&&!alcoholFree&&!(Number.isFinite(abv)&&abv<=0.5)))
       add('avoid','Alcohol','The HSE says there is no safe time to drink alcohol when you are pregnant.'+(pct>0.5?' This product is '+pct+'% alcohol.':''));
+    else if(!alcoholFree&&brandDrink&&NOT_A_DRINK.test(nameT))
+      add('care','Made by a drinks brand','This comes from an alcohol brand and may contain alcohol. Check the ingredients on the pack.');
     else if(!alcoholFree&&/\b(alcohol|liqueur|brandy|whisk(?:e)?y|vodka|rum|gin|cognac|sherry|wine|beer|cider|stout|champagne|prosecco|baileys)\b/.test(t))
       add('care','Contains alcohol as an ingredient','Alcohol is listed in the ingredients. Some can stay in the food even after cooking or baking, and the HSE says no amount of alcohol is known to be safe in pregnancy.');
 
@@ -393,7 +420,7 @@
     els.homeStatus.textContent='';
     showOnly('loadingCard'); els.loadingText.textContent='Checking the food database...';
     try{
-      const url='https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json?fields=code,product_name,product_name_en,generic_name,generic_name_en,categories_tags,brands,ingredients_text,ingredients_text_en,allergens,allergens_tags,traces,traces_tags,labels_tags,nutriments';
+      const url='https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json?fields=code,product_name,product_name_en,generic_name,generic_name_en,categories_tags,categories,categories_hierarchy,food_groups_tags,pnns_groups_1,pnns_groups_2,labels,brands,ingredients_text,ingredients_text_en,allergens,allergens_tags,traces,traces_tags,labels_tags,nutriments';
       const r=await fetch(url,{headers:{'Accept':'application/json'}});
       if(!r.ok && r.status!==404)throw new Error('network');
       const data=await r.json();
@@ -417,7 +444,7 @@
     const containsText=[p.ingredients_text_en||p.ingredients_text||'',p.allergens||'',(p.allergens_tags||[]).join(' ')].join(' . ');
     const tracesText=[p.traces||'',(p.traces_tags||[]).join(' ')].join(' . ');
     const r=analyse(containsText,tracesText);
-    const preg=pregnancyCheck({text:[p.product_name_en||'',p.product_name||'',p.generic_name_en||'',p.generic_name||'',containsText].join(' . '),categories:(p.categories_tags||[]).concat(p.labels_tags||[]).join(' '),alcohol:(p.nutriments||{}).alcohol_100g??(p.nutriments||{}).alcohol});
+    const preg=pregnancyCheck({text:[p.product_name_en||'',p.product_name||'',p.generic_name_en||'',p.generic_name||'',containsText].join(' . '),categories:[].concat(p.categories_tags||[],p.categories_hierarchy||[],p.food_groups_tags||[],p.labels_tags||[],[p.categories||'',p.labels||'',p.pnns_groups_1||'',p.pnns_groups_2||'']).join(' '),alcohol:alcoholOf(p.nutriments),name:[p.product_name_en||'',p.product_name||'',p.generic_name_en||'',p.generic_name||''].join(' . '),brand:p.brands||''});
     els.warnings.innerHTML=pregnancyHtml(preg)+(warningsHtml(r,'product information')||warningBox('No listed warnings found','No matching major-allergen or ADHD/sensitivity terms were found in the available database text. This is not proof that the food is safe.',''));
     const labels=(p.labels_tags||[]).join(' ').toLowerCase();
     const tags=[];
