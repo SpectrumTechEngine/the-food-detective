@@ -21,7 +21,34 @@
 .ste-logo-wrapper { display: flex; justify-content: center; margin: 14px auto 8px; }
 .ste-logo-img { width: min(280px, 80%); height: auto; display: block; }
 
-.sub{color:#aeb5c8;margin-top:5px;font-size:14px}.card{background:#181c2b;border:1px solid #2b3145;border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 10px 30px #0004}.btn{width:100%;border:0;border-radius:16px;padding:16px 14px;font-size:17px;font-weight:800;cursor:pointer;margin-top:10px;background:#6d5dfc;color:white}.btn.secondary{background:#252b3d}.btn.small{width:auto;padding:11px 14px;font-size:14px}.btn:active{transform:scale(.99)}video{width:100%;border-radius:18px;background:#090b12;display:block;aspect-ratio:4/3;object-fit:cover}.hidden{display:none!important}.status{text-align:center;color:#b8bfd0;font-size:14px;margin-top:12px;min-height:20px}.result-title{font-size:25px;font-weight:800}.muted{color:#aeb5c8}.barcode{font-family:ui-monospace,monospace;font-size:13px;color:#8f97ad;margin-top:5px}.section-title{font-weight:800;margin:20px 0 9px}.tagwrap{display:flex;flex-wrap:wrap;gap:8px}.tag{padding:8px 10px;border-radius:999px;font-size:13px;background:#252b3d}.tag.good{background:#163b2c;color:#8ef0bd}.tag.warn{background:#4b3415;color:#ffd38a}.tag.bad{background:#4a2028;color:#ffabb5}.notice{border-radius:16px;padding:13px 14px;margin:9px 0;background:#22283a}.notice h3{margin:0 0 5px;font-size:17px}.notice.bad{background:#4a2028}.notice.bad h3{color:#ffabb5}.notice.warn{background:#4b3415}.notice.warn h3{color:#ffd38a}.notice p{margin:0;color:#d2d6e2;font-size:14px;line-height:1.45}.advice{font-size:12px;line-height:1.45;color:#9fa7bb;margin-top:14px}.manual{display:flex;gap:8px;margin-top:10px}.manual input{flex:1;min-width:0;background:#0f1320;border:1px solid #353c52;border-radius:14px;color:white;padding:13px;font-size:16px}.preview{width:100%;border-radius:16px;margin-top:10px;max-height:300px;object-fit:contain;background:#0b0e16}.pill{display:inline-block;background:#252b3d;padding:6px 9px;border-radius:999px;font-size:12px;margin:3px}.loading{padding:25px;text-align:center}.spinner{width:30px;height:30px;border:3px solid #394057;border-top-color:#8b7cff;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}@keyframes spin{to{transform:rotate(360deg)}}
+.sub{color:#aeb5c8;margin-top:5px;font-size:14px}.card{background:#181c2b;border:1px solid #2b3145;border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 10px 30px #0004}.btn{width:100%;border:0;border-radius:16px;padding:16px 14px;font-size:17px;font-weight:800;cursor:pointer;margin-top:10px;background:#6d5dfc;color:white}.btn.secondary{background:#252b3d}.btn.small{width:auto;padding:11px 14px;font-size:14px}.btn:active{transform:scale(.99)}video{width:100%;border-radius:18px;background:#090b12;display:block;aspect-ratio:4/3;object-fit:cover}.hidden{display:none!important}
+/* Pregnancy alerts */
+.preg-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:12px 14px;background:#0f1320;border:1px solid #353c52;border-radius:14px;font-weight:700;font-size:15px;cursor:pointer}
+.preg-toggle small{display:block;font-weight:500;color:#9aa3b8;font-size:12.5px;margin-top:2px}
+.switch{position:relative;flex:none;width:50px;height:28px}
+.switch input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.switch span{position:absolute;inset:0;background:#353c52;border-radius:99px;transition:.2s;pointer-events:none}
+.switch span:before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.switch input:checked+span{background:#e0457b}
+.switch input:checked+span:before{transform:translateX(22px)}
+.preg{border-radius:18px;padding:16px;margin:4px 0 14px;border:3px solid #ff4d6d;background:linear-gradient(160deg,#5a1426,#3a0d19);box-shadow:0 0 0 4px rgba(255,77,109,.18),0 10px 30px rgba(255,77,109,.25)}
+.preg.caution{border-color:#ffb020;background:linear-gradient(160deg,#4d3410,#33220a);box-shadow:0 0 0 4px rgba(255,176,32,.15)}
+.preg .preg-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.preg .preg-icon{font-size:38px;line-height:1}
+.preg h2{margin:0;font-size:21px;line-height:1.2;color:#fff;letter-spacing:.2px}
+.preg .preg-sub{font-size:13px;color:#ffd5dd;margin-top:3px}
+.preg.caution .preg-sub{color:#ffe3b0}
+.preg ul{margin:0;padding:0;list-style:none}
+.preg li{background:rgba(0,0,0,.22);border-radius:12px;padding:10px 12px;margin:7px 0}
+.preg li b{display:block;font-size:15.5px;color:#fff;margin-bottom:3px}
+.preg li span{font-size:13.5px;color:#f1d9de;line-height:1.45}
+.preg.caution li span{color:#f3e4c8}
+.preg li.lvl-avoid b:before{content:"⛔ "}
+.preg li.lvl-care b:before{content:"⚠️ "}
+.preg .preg-foot{font-size:12.5px;color:#e9c3cb;margin-top:10px;line-height:1.45}
+.preg.caution .preg-foot{color:#ecd5a8}
+.preg-clear{font-size:13px;color:#9aa3b8;background:#1d2334;border-radius:12px;padding:9px 12px;margin:4px 0 10px}
+.status{text-align:center;color:#b8bfd0;font-size:14px;margin-top:12px;min-height:20px}.result-title{font-size:25px;font-weight:800}.muted{color:#aeb5c8}.barcode{font-family:ui-monospace,monospace;font-size:13px;color:#8f97ad;margin-top:5px}.section-title{font-weight:800;margin:20px 0 9px}.tagwrap{display:flex;flex-wrap:wrap;gap:8px}.tag{padding:8px 10px;border-radius:999px;font-size:13px;background:#252b3d}.tag.good{background:#163b2c;color:#8ef0bd}.tag.warn{background:#4b3415;color:#ffd38a}.tag.bad{background:#4a2028;color:#ffabb5}.notice{border-radius:16px;padding:13px 14px;margin:9px 0;background:#22283a}.notice h3{margin:0 0 5px;font-size:17px}.notice.bad{background:#4a2028}.notice.bad h3{color:#ffabb5}.notice.warn{background:#4b3415}.notice.warn h3{color:#ffd38a}.notice p{margin:0;color:#d2d6e2;font-size:14px;line-height:1.45}.advice{font-size:12px;line-height:1.45;color:#9fa7bb;margin-top:14px}.manual{display:flex;gap:8px;margin-top:10px}.manual input{flex:1;min-width:0;background:#0f1320;border:1px solid #353c52;border-radius:14px;color:white;padding:13px;font-size:16px}.preview{width:100%;border-radius:16px;margin-top:10px;max-height:300px;object-fit:contain;background:#0b0e16}.pill{display:inline-block;background:#252b3d;padding:6px 9px;border-radius:999px;font-size:12px;margin:3px}.loading{padding:25px;text-align:center}.spinner{width:30px;height:30px;border:3px solid #394057;border-top-color:#8b7cff;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -44,6 +71,10 @@
       <input id="barcodeInput" inputmode="numeric" autocomplete="off" placeholder="Enter barcode manually">
       <button class="btn small" id="manualBtn">GO</button>
     </div>
+    <label class="preg-toggle" for="pregToggle">
+      <span>🤰 Pregnancy alerts<small>Warns you about foods the HSE advises avoiding in pregnancy</small></span>
+      <span class="switch"><input type="checkbox" id="pregToggle" checked><span></span></span>
+    </label>
     <div class="status" id="homeStatus"></div>
   </section>
 
@@ -185,6 +216,97 @@
     return w;
   }
 
+
+  /* ---------- Pregnancy alerts ----------
+     Based on HSE advice: www2.hse.ie/pregnancy-birth/keeping-well/food-drink/what-to-avoid/
+     "avoid" = the HSE says to avoid it. "care" = limit it, or check how it's made. */
+  const PREG_KEY='fd_pregnancy_alerts';
+  function pregOn(){try{return localStorage.getItem(PREG_KEY)!=='off';}catch(e){return true;}}
+  const PREG_RULES=[
+    {lvl:'avoid',title:'Unpasteurised dairy',terms:['unpasteurised','unpasteurized','raw milk','lait cru','made with raw milk'],
+     body:'The HSE advises avoiding unpasteurised milk and cheese in pregnancy. They can carry listeria, which can be dangerous for your baby.'},
+    {lvl:'avoid',title:'Mould-ripened or blue cheese',terms:['brie','camembert','chevre','mould ripened','mold ripened','white rind','danish blue','gorgonzola','roquefort','dolcelatte','cambozola','stilton','blue cheese','blue cheeses','bries','camemberts','soft ripened cheeses'],
+     body:'The HSE advises avoiding mould-ripened cheeses like brie and camembert, and blue cheeses like Danish blue, gorgonzola and roquefort. They may contain listeria.'},
+    {lvl:'avoid',title:'Cold cured meat',terms:['salami','salamis','parma ham','prosciutto','chorizo','pepperoni','serrano ham','bresaola','salamini','nduja','saucisson','coppa','chorizos','pepperonis','prosciuttos'],
+     body:'The HSE advises avoiding cold cured meats such as salami, parma ham, chorizo and pepperoni.'},
+    {lvl:'avoid',title:'Liver or liver products',terms:['liver','livers','liver sausage','liverwurst','haggis','foie gras','cod liver oil','fish liver oil'],
+     body:'The HSE advises avoiding liver, including liver sausage, haggis and pâté containing liver. Liver is very high in vitamin A, which can harm your baby.'},
+    {lvl:'care',title:'Pâté',terms:['pate','pates','paste of meat','meat pate','vegetable pate','fish pate'],
+     body:'The HSE advises avoiding pâté that contains liver. Check the ingredients, and ask your GP or midwife about other types.'},
+    {lvl:'avoid',title:'Shark, swordfish or marlin',terms:['shark','swordfish','marlin'],
+     body:'The HSE advises avoiding shark, swordfish and marlin in pregnancy. They can contain high levels of mercury.'},
+    {lvl:'avoid',title:'Raw or smoked fish',terms:['smoked salmon','smoked trout','smoked mackerel','smoked haddock','smoked fish','smoked cod','kipper','kippers','gravlax','gravadlax','sushi','sushis','sashimi','ceviche','raw fish','poke bowl','smoked salmons','smoked fishes','smoked trouts','smoked mackerels'],
+     body:'The HSE advises avoiding raw or smoked fish, including sushi, in pregnancy.'},
+    {lvl:'care',title:'Shellfish',terms:['clam','clams','oyster','oysters','scallop','scallops','prawn','prawns','shrimp','shrimps','mussel','mussels'],
+     body:'The HSE lists clams, oysters, scallops, prawns and mussels as foods to avoid. The risk is highest in pre-cooked (chilled, ready-to-eat) shellfish.'},
+    {lvl:'care',title:'Raw egg',terms:['raw egg','raw eggs','unpasteurised egg','unpasteurised eggs','unpasteurized egg','raw egg yolk'],
+     body:'The HSE advises avoiding foods made with raw or under-cooked eggs, such as homemade mayonnaise.'},
+    {lvl:'care',title:'Tuna: keep to the weekly limit',terms:['tuna'],
+     body:'The HSE says to limit tuna to one fresh tuna steak (150g cooked) or two tins (140g drained each) a week.'},
+    {lvl:'care',title:'Contains caffeine',terms:['caffeine','coffee','espresso','energy drink','energy drinks','guarana','cola','matcha','green tea','black tea','tea extract','breakfast tea','earl grey'],
+     body:'The HSE says to keep caffeine under 200mg a day in total, about 2 mugs of instant coffee. Too much can increase the risk of miscarriage or a small baby.'}
+  ];
+  const SAFE_TEAS=['ginger','peppermint','camomile','chamomile','fruit','berry','berries','apple','lemon','orange','strawberry','raspberry'];
+  function pregText(s){
+    return norm(String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,''))
+      .replace(/\b(?:\w+ ){0,2}\w+ flavou?r(?:ed|ing|s)?\b/g,' ')              // "smoky bacon flavour" isn't bacon
+      .replace(/\b(?:alcohol|caffeine) free\b|\bnon alcoholic\b|\bde ?alcoholi[sz]ed\b|\bdecaf(?:feinated)?\b|\bsugar alcohols?\b/g,' ')
+      .replace(/\b(?:wine|cider|malt|sherry|rice) vinegars?\b/g,' ')
+      .replace(/\bwine gums?\b|\broot beers?\b|\bginger beers?\b|\bbutterbeer\b/g,' ')
+      .replace(/\bpasteuri[sz]ed\b/g,' pasteurised ');
+  }
+  function pregnancyCheck(parts){
+    const raw=String((parts.text||'')+' '+(parts.categories||'')).toLowerCase();
+    const alcoholFree=/alcohol[ -]free|non[ -]alcoholic|de[ -]?alcoholi[sz]ed|\b0[.,]0 ?%/.test(raw);
+    const t=pregText(parts.text);
+    const cats=pregText(parts.categories||'');
+    const all=t+' '+cats;
+    const found=[];
+    const add=(lvl,title,body)=>{if(!found.some(f=>f.title===title))found.push({lvl,title,body});};
+
+    // The pack itself says it's not for pregnancy (e.g. high-caffeine drinks, some supplements)
+    if(/not (?:recommended|suitable|to be (?:taken|used|consumed)) (?:for|by|during|in)[^.;]{0,70}pregnan/.test(all)||
+       /pregnan[a-z]*(?: or breast ?feeding)?(?: women| mothers| people)? should (?:not|avoid)|avoid (?:during|in|if) pregnan|do not (?:take|use|consume) (?:if|when|during)[^.;]{0,30}pregnan/.test(all))
+      add('avoid','The label says: not for pregnancy','The packaging says this product is not recommended during pregnancy.');
+
+    // Alcohol
+    const abv=Number(parts.alcohol);
+    const ocrAbv=(all.match(/(\d+(?:[.,]\d+)?) ?% ?(?:vol|abv|alc)\b/)||all.match(/\balc\.? ?(\d+(?:[.,]\d+)?) ?%/)||[])[1];
+    const pct=Number.isFinite(abv)&&abv>0?abv:(ocrAbv?parseFloat(String(ocrAbv).replace(',','.')):0);
+    const isDrink=/\b(alcoholic beverages?|alcoholic drinks?|beers?|wines?|spirits|ciders?|liqueurs?|lagers?|stouts?|whisk(?:e)?ys?|vodkas?|gins?|rums?|prosecco|champagnes?)\b/.test(cats);
+    if(pct>0.5||(isDrink&&!alcoholFree&&!(Number.isFinite(abv)&&abv<=0.5)))
+      add('avoid','Alcohol','The HSE says there is no safe time to drink alcohol when you are pregnant.'+(pct>0.5?' This product is '+pct+'% alcohol.':''));
+    else if(!alcoholFree&&/\b(alcohol|liqueur|brandy|whisk(?:e)?y|vodka|rum|gin|cognac|sherry|wine|beer|cider|stout|champagne|prosecco|baileys)\b/.test(t))
+      add('care','Contains alcohol as an ingredient','Alcohol is listed in the ingredients. Some can stay in the food even after cooking or baking, and the HSE says no amount of alcohol is known to be safe in pregnancy.');
+
+    for(const r of PREG_RULES){
+      if(r.title==='Pâté'&&found.some(f=>f.title.startsWith('Liver')))continue;
+      if(r.terms.some(x=>has(all,x)))add(r.lvl,r.title,r.body);
+    }
+    // Herbal teas and supplements (the HSE only okays ginger, peppermint, camomile and fruit teas)
+    if(/\b(herbal teas?|herbal infusions?|infusions|herbal supplements?|herbal remed(?:y|ies))\b/.test(all)&&!SAFE_TEAS.some(x=>has(t,x)))
+      add('care','Herbal tea or supplement','The HSE says ginger, peppermint, camomile and fruit teas are fine in pregnancy, but to avoid all other herbal teas and supplements.');
+
+    found.sort((a,b)=>(a.lvl==='avoid'?0:1)-(b.lvl==='avoid'?0:1));
+    return found;
+  }
+  function pregnancyHtml(found){
+    if(!pregOn())return '';
+    if(!found.length)return '<div class="preg-clear">🤰 No pregnancy concerns found in the listed information. This is not a guarantee, so always check the pack.</div>';
+    const avoid=found.some(f=>f.lvl==='avoid');
+    return '<div class="preg '+(avoid?'':'caution')+'" role="alert">'+
+      '<div class="preg-head"><div class="preg-icon">🤰</div><div><h2>'+(avoid?'PREGNANCY WARNING: NOT RECOMMENDED':'PREGNANCY: TAKE CARE')+'</h2>'+
+      '<div class="preg-sub">'+(avoid?'If you are pregnant, this food is not recommended. See why below.':'If you are pregnant, check this before eating.')+'</div></div></div>'+
+      '<ul>'+found.map(f=>'<li class="lvl-'+f.lvl+'"><b>'+escapeHtml(f.title)+'</b><span>'+escapeHtml(f.body)+'</span></li>').join('')+'</ul>'+
+      '<div class="preg-foot">Based on HSE pregnancy advice. Some foods are considered safe once cooked until steaming hot. Food Detective can miss things or get them wrong, so always read the label and ask your GP or midwife if unsure.</div></div>';
+  }
+  function pregnancyAlert(found){
+    if(!pregOn()||!found.some(f=>f.lvl==='avoid'))return false;
+    try{if(navigator.vibrate)navigator.vibrate([200,100,200]);}catch(e){}
+    beep('adhd');setTimeout(()=>beep('adhd'),480);
+    return true;
+  }
+
   /* ---------- Sounds ---------- */
   function beep(type){
     try{
@@ -271,7 +393,7 @@
     els.homeStatus.textContent='';
     showOnly('loadingCard'); els.loadingText.textContent='Checking the food database...';
     try{
-      const url='https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json?fields=code,product_name,product_name_en,brands,ingredients_text,ingredients_text_en,allergens,allergens_tags,traces,traces_tags,labels_tags,nutriments';
+      const url='https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json?fields=code,product_name,product_name_en,generic_name,generic_name_en,categories_tags,brands,ingredients_text,ingredients_text_en,allergens,allergens_tags,traces,traces_tags,labels_tags,nutriments';
       const r=await fetch(url,{headers:{'Accept':'application/json'}});
       if(!r.ok && r.status!==404)throw new Error('network');
       const data=await r.json();
@@ -295,7 +417,8 @@
     const containsText=[p.ingredients_text_en||p.ingredients_text||'',p.allergens||'',(p.allergens_tags||[]).join(' ')].join(' . ');
     const tracesText=[p.traces||'',(p.traces_tags||[]).join(' ')].join(' . ');
     const r=analyse(containsText,tracesText);
-    els.warnings.innerHTML=warningsHtml(r,'product information')||warningBox('No listed warnings found','No matching major-allergen or ADHD/sensitivity terms were found in the available database text. This is not proof that the food is safe.','');
+    const preg=pregnancyCheck({text:[p.product_name_en||'',p.product_name||'',p.generic_name_en||'',p.generic_name||'',containsText].join(' . '),categories:(p.categories_tags||[]).concat(p.labels_tags||[]).join(' '),alcohol:(p.nutriments||{}).alcohol_100g??(p.nutriments||{}).alcohol});
+    els.warnings.innerHTML=pregnancyHtml(preg)+(warningsHtml(r,'product information')||warningBox('No listed warnings found','No matching major-allergen or ADHD/sensitivity terms were found in the available database text. This is not proof that the food is safe.',''));
     const labels=(p.labels_tags||[]).join(' ').toLowerCase();
     const tags=[];
     if(labels.includes('vegan'))tags.push(['✓ Vegan','good']);
@@ -313,7 +436,7 @@
     if(Number.isFinite(n['salt_100g']))nt.push('🧂 '+round1(n['salt_100g'])+'g salt/100g');
     els.nutrition.innerHTML=nt.length?nt.map(x=>'<span class="pill">'+escapeHtml(x)+'</span>').join(''):'<span class="tag">Nutrition not available</span>';
     showOnly('resultCard');
-    if(r.adhd.length)beep('adhd'); else if(r.contains.length||r.mayContain.length)beep('normal');
+    if(pregnancyAlert(preg)){} else if(r.adhd.length)beep('adhd'); else if(r.contains.length||r.mayContain.length)beep('normal');
   }
 
   /* ---------- Ingredient photo ---------- */
@@ -337,12 +460,16 @@
   function renderOCR(text){
     const r=analyse(text.replace(/\n/g,' '),'');
     els.ocrSummary.textContent='I read the photo as best I could. Please verify every word against the package.';
-    els.ocrWarnings.innerHTML=warningsHtml(r,'photographed text')||warningBox('No listed terms found','No matching terms were detected in the OCR text. That does not prove the product is allergy-safe.','');
+    const preg=pregnancyCheck({text:text.replace(/\n/g,' ')});
+    els.ocrWarnings.innerHTML=pregnancyHtml(preg)+(warningsHtml(r,'photographed text')||warningBox('No listed terms found','No matching terms were detected in the OCR text. That does not prove the product is allergy-safe.',''));
     els.ocrText.textContent=text;showOnly('textResultCard');
-    if(r.adhd.length)beep('adhd'); else if(r.contains.length||r.mayContain.length)beep('normal');
+    if(pregnancyAlert(preg)){} else if(r.adhd.length)beep('adhd'); else if(r.contains.length||r.mayContain.length)beep('normal');
   }
   function reset(){stopCamera();showOnly(null);els.homeStatus.textContent='';els.barcodeInput.value='';}
 
+  const pregToggle=$('pregToggle');
+  pregToggle.checked=pregOn();
+  pregToggle.addEventListener('change',()=>{try{localStorage.setItem(PREG_KEY,pregToggle.checked?'on':'off');}catch(e){}});
   $('barcodeBtn').addEventListener('click',startBarcode);
   $('stopScanBtn').addEventListener('click',()=>{stopCamera();showOnly(null);});
   $('manualBtn').addEventListener('click',()=>lookup(els.barcodeInput.value));
