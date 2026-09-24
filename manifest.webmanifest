@@ -1,0 +1,19 @@
+{
+  "name": "Food Detective",
+  "short_name": "Food Detective",
+  "description": "Scan it. Check it. Know what's inside.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#10131f",
+  "theme_color": "#10131f",
+  "icons": [
+    {
+      "src": "thefooddetectiveicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
