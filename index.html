@@ -47,6 +47,55 @@
 .preg li.lvl-care b:before{content:"⚠️ "}
 .preg .preg-foot{font-size:12.5px;color:#e9c3cb;margin-top:10px;line-height:1.45}
 .preg.caution .preg-foot{color:#ecd5a8}
+/* Screens start at the top: hide the home screen while scanning or showing results */
+body.task .top, body.task #homeCard{display:none}
+.scan-tip{font-size:13px;color:#aeb5c8;text-align:center;margin-top:8px}
+.torch-btn{margin-top:10px}
+.torch-btn.on{background:#f5c542;color:#1b1500}
+.tips{margin:10px 0 12px;padding:10px 12px;background:#0f1320;border:1px solid #2b3145;border-radius:14px;font-size:13.5px;color:#c9cfdd;line-height:1.55}
+.tips b{color:#fff}
+.photo-note{margin:4px 0 12px;padding:12px 14px;border-radius:14px;background:#2a2340;border:1px solid #4b3f78;color:#e8e2ff;font-size:14.5px;line-height:1.45}
+.missing{margin:10px 0 14px;padding:14px;border-radius:16px;background:#2a2340;border:2px solid #7c6cf0;color:#ece9ff}
+.missing b{display:block;font-size:16.5px;margin-bottom:4px;color:#fff}
+.missing span{display:block;font-size:13.5px;color:#cfc9f5;margin-bottom:10px}
+/* My allergens */
+.mine-box{margin-top:14px;background:#0f1320;border:1px solid #353c52;border-radius:14px;padding:0}
+.mine-box summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.mine-box summary::-webkit-details-marker{display:none}
+.mine-box summary small{font-weight:500;color:#9aa3b8;font-size:12.5px;text-align:right}
+.mine-box[open] summary{border-bottom:1px solid #2b3145}
+.mine-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px 12px 4px}
+.mine-grid label{display:flex;align-items:center;gap:8px;font-size:14px;padding:7px 8px;border-radius:10px;background:#181c2b;cursor:pointer}
+.mine-grid input{width:18px;height:18px;accent-color:#ff4d6d;flex:none}
+.mine-help{font-size:12.5px;color:#9aa3b8;padding:4px 14px 12px;margin:0}
+.notice.mine{border:3px solid #ff4d6d;background:linear-gradient(160deg,#5a1426,#3a0d19);box-shadow:0 0 0 4px rgba(255,77,109,.18)}
+.notice.mine h3{font-size:20px;color:#fff}
+.notice.mine p{color:#ffd5dd}
+.notice.mine.trace{border-color:#ffb020;background:linear-gradient(160deg,#4d3410,#33220a);box-shadow:0 0 0 4px rgba(255,176,32,.15)}
+.notice.mine.trace p{color:#ffe3b0}
+.also{font-size:13.5px;color:#c9cfdd;background:#1d2334;border-radius:12px;padding:10px 12px;margin:4px 0 10px;line-height:1.5}
+.also b{color:#fff}
+/* Additives */
+.additives{background:#15202b;border:1px solid #27465a;border-radius:16px;padding:12px 14px;margin:6px 0 10px}
+.add-head{font-weight:700;color:#bfe3f5;font-size:14.5px;margin-bottom:6px}
+.add-row{display:flex;gap:10px;padding:8px 0;border-top:1px solid #213a4a;font-size:13.5px;color:#cfdde6;line-height:1.4}
+.add-row:first-of-type{border-top:0}
+.add-code{flex:none;min-width:54px;font-weight:700;color:#8fd0ee;font-variant-numeric:tabular-nums}
+.add-text b{color:#fff}
+.add-note{display:block;margin-top:3px;color:#f3d79b;font-size:12.8px}
+.add-note:before{content:"⚠︎ ";}
+.add-foot{font-size:12px;color:#8aa3b3;margin-top:8px}
+.add-none{font-size:13px;color:#9aa3b8;background:#1d2334;border-radius:12px;padding:9px 12px;margin:4px 0 10px}
+/* Recent scans */
+.recent{margin-top:14px}
+.recent-head{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;margin:0 2px 6px}
+.recent-head button{background:none;border:0;color:#9aa3b8;font-size:13px;cursor:pointer;padding:4px}
+.recent-row{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#0f1320;border:1px solid #2b3145;border-radius:12px;padding:10px 12px;margin:6px 0;color:#f5f7ff;cursor:pointer;font:inherit}
+.recent-row .dot{width:10px;height:10px;border-radius:50%;flex:none;background:#3ba776}
+.recent-row .dot.bad{background:#ff4d6d}.recent-row .dot.warn{background:#ffb020}
+.recent-row .rn{flex:1;min-width:0}
+.recent-row .rn b{display:block;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.recent-row .rn small{color:#9aa3b8;font-size:12px}
 .preg-clear{font-size:13px;color:#9aa3b8;background:#1d2334;border-radius:12px;padding:9px 12px;margin:4px 0 10px}
 .status{text-align:center;color:#b8bfd0;font-size:14px;margin-top:12px;min-height:20px}.result-title{font-size:25px;font-weight:800}.muted{color:#aeb5c8}.barcode{font-family:ui-monospace,monospace;font-size:13px;color:#8f97ad;margin-top:5px}.section-title{font-weight:800;margin:20px 0 9px}.tagwrap{display:flex;flex-wrap:wrap;gap:8px}.tag{padding:8px 10px;border-radius:999px;font-size:13px;background:#252b3d}.tag.good{background:#163b2c;color:#8ef0bd}.tag.warn{background:#4b3415;color:#ffd38a}.tag.bad{background:#4a2028;color:#ffabb5}.notice{border-radius:16px;padding:13px 14px;margin:9px 0;background:#22283a}.notice h3{margin:0 0 5px;font-size:17px}.notice.bad{background:#4a2028}.notice.bad h3{color:#ffabb5}.notice.warn{background:#4b3415}.notice.warn h3{color:#ffd38a}.notice p{margin:0;color:#d2d6e2;font-size:14px;line-height:1.45}.advice{font-size:12px;line-height:1.45;color:#9fa7bb;margin-top:14px}.manual{display:flex;gap:8px;margin-top:10px}.manual input{flex:1;min-width:0;background:#0f1320;border:1px solid #353c52;border-radius:14px;color:white;padding:13px;font-size:16px}.preview{width:100%;border-radius:16px;margin-top:10px;max-height:300px;object-fit:contain;background:#0b0e16}.pill{display:inline-block;background:#252b3d;padding:6px 9px;border-radius:999px;font-size:12px;margin:3px}.loading{padding:25px;text-align:center}.spinner{width:30px;height:30px;border:3px solid #394057;border-top-color:#8b7cff;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}@keyframes spin{to{transform:rotate(360deg)}}
 </style>
@@ -75,18 +124,30 @@
       <span>🤰 Pregnancy alerts<small>Warns you about foods the HSE advises avoiding in pregnancy</small></span>
       <span class="switch"><input type="checkbox" id="pregToggle" checked><span></span></span>
     </label>
+    <details class="mine-box" id="mineBox">
+      <summary><span>⚠️ My allergens</span><small id="mineSummary">None chosen</small></summary>
+      <div class="mine-grid" id="mineGrid"></div>
+      <p class="mine-help">Tick the ones that matter to you. They get the biggest warnings, and the rest are still shown, just quieter. Saved on this phone.</p>
+    </details>
     <div class="status" id="homeStatus"></div>
+    <div class="recent hidden" id="recentBox">
+      <div class="recent-head"><span>🕘 Recent scans</span><button type="button" id="clearRecent">Clear</button></div>
+      <div id="recentList"></div>
+    </div>
   </section>
 
   <section class="card hidden" id="scannerCard">
     <video id="video" playsinline muted></video>
     <div class="status" id="scanStatus">Point the camera at a barcode.</div>
+    <div class="scan-tip">Hold the barcode flat, about a hand's length away.</div>
+    <button class="btn secondary torch-btn hidden" id="torchBtn" type="button">🔦 TORCH</button>
     <button class="btn secondary" id="stopScanBtn">CLOSE SCANNER</button>
   </section>
 
   <section class="card hidden" id="photoCard">
     <div class="section-title">Ingredient photo</div>
-    <div class="muted">Take a clear picture of the ingredients list. We'll try to read it.</div>
+    <div class="photo-note hidden" id="photoNote"></div>
+    <div class="tips"><b>📋 For the best read:</b><br>• Fill the screen with the ingredients list<br>• Hold steady and keep the pack flat<br>• Good light, with no shiny glare<br>• Take it straight on, not at an angle</div>
     <input id="photoInput" class="hidden" type="file" accept="image/*" capture="environment">
     <button class="btn" id="takePhotoBtn">📷 TAKE INGREDIENT PHOTO</button>
     <img id="photoPreview" class="preview hidden" alt="Ingredient photo preview">
@@ -101,9 +162,13 @@
     <div class="result-title" id="productName">Food</div>
     <div class="barcode" id="productBarcode"></div>
     <div id="brandLine" class="muted"></div>
+    <div class="missing hidden" id="missingBox"><b>📋 The ingredients for this one aren't in the database</b><span>Take a picture of the ingredients list and I'll check it for you.</span><button class="btn" type="button" id="missingPhotoBtn">📷 TAKE A PICTURE OF THE INGREDIENTS</button></div>
 
     <div class="section-title">🚨 Warnings</div>
     <div id="warnings"></div>
+
+    <div class="section-title">ℹ️ Additives</div>
+    <div id="additives"></div>
 
     <div class="section-title">🥬 Dietary information</div>
     <div id="dietary" class="tagwrap"></div>
@@ -123,6 +188,8 @@
     <div class="muted" id="ocrSummary"></div>
     <div class="section-title">🚨 Possible warnings</div>
     <div id="ocrWarnings"></div>
+    <div class="section-title">ℹ️ Additives</div>
+    <div id="ocrAdditives"></div>
     <div class="section-title">📋 Read text</div>
     <div id="ocrText" class="muted"></div>
     <div class="advice">OCR can misread packaging text. Treat this as a helper, not proof that a product is allergy-safe.</div>
@@ -139,9 +206,10 @@
     homeCard:$('homeCard'), scannerCard:$('scannerCard'), photoCard:$('photoCard'), loadingCard:$('loadingCard'), resultCard:$('resultCard'), textResultCard:$('textResultCard'),
     video:$('video'), scanStatus:$('scanStatus'), homeStatus:$('homeStatus'), loadingText:$('loadingText'),
     barcodeInput:$('barcodeInput'), productName:$('productName'), productBarcode:$('productBarcode'), brandLine:$('brandLine'), warnings:$('warnings'), dietary:$('dietary'), ingredients:$('ingredients'), nutrition:$('nutrition'),
-    photoInput:$('photoInput'), photoPreview:$('photoPreview'), ocrStatus:$('ocrStatus'), ocrWarnings:$('ocrWarnings'), ocrText:$('ocrText'), ocrSummary:$('ocrSummary')
+    photoInput:$('photoInput'), photoPreview:$('photoPreview'), ocrStatus:$('ocrStatus'), ocrWarnings:$('ocrWarnings'), ocrText:$('ocrText'), ocrSummary:$('ocrSummary'),
+    additives:$('additives'), ocrAdditives:$('ocrAdditives'), missingBox:$('missingBox'), photoNote:$('photoNote'), torchBtn:$('torchBtn')
   };
-  let stream=null, detector=null, scanning=false, previewUrl='';
+  let stream=null, detector=null, scanning=false, previewUrl='', torchOn=false, pendingProduct=null;
 
   /* ---------- Word lists ---------- */
   const ALLERGENS = [
@@ -208,14 +276,152 @@
   function has(text, term){
     return new RegExp('(^|[^a-z0-9])'+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z0-9]|$)','i').test(text);
   }
+  /* ---------- My allergens ---------- */
+  const MINE_KEY='fd_my_allergens';
+  const ALLERGEN_LABELS={'peanut':'Peanuts','nuts':'Tree nuts','milk':'Milk','egg':'Eggs','soy':'Soya','gluten / cereals':'Gluten','sesame':'Sesame','fish':'Fish',
+    'crustaceans':'Crustaceans','molluscs':'Molluscs','celery':'Celery','mustard':'Mustard','lupin':'Lupin','sulphites':'Sulphites'};
+  function myAllergens(){try{const v=JSON.parse(localStorage.getItem(MINE_KEY)||'[]');return Array.isArray(v)?v:[];}catch(e){return [];}}
+  function saveMine(list){try{localStorage.setItem(MINE_KEY,JSON.stringify(list));}catch(e){}}
+  function mineHit(r){const m=myAllergens();return r.contains.concat(r.mayContain).some(n=>m.includes(n));}
   function warningsHtml(r, source){
     let w='';
-    for(const name of r.contains) w+=warningBox(name.toUpperCase()+' ALLERGY WARNING','Possible '+name+' ingredient found in the '+source+'. Check the allergen statement on the pack before eating.','bad');
-    for(const name of r.mayContain) w+=warningBox('MAY CONTAIN '+name.toUpperCase(),'The '+source+' mentions '+name+' as a possible trace. This matters if the allergy is serious.','warn');
+    const mine=myAllergens();
+    if(mine.length){
+      const lab=n=>ALLERGEN_LABELS[n]||n;
+      for(const name of r.contains.filter(n=>mine.includes(n))) w+=warningBox('⛔ YOUR ALLERGEN: '+lab(name).toUpperCase(),'This looks like it contains '+lab(name).toLowerCase()+'. Check the allergen statement on the pack before eating.','mine');
+      for(const name of r.mayContain.filter(n=>mine.includes(n))) w+=warningBox('⚠️ MAY CONTAIN YOUR ALLERGEN: '+lab(name).toUpperCase(),'The '+source+' mentions '+lab(name).toLowerCase()+' as a possible trace. This matters if your allergy is serious.','mine trace');
+      const oc=r.contains.filter(n=>!mine.includes(n)).map(lab), ot=r.mayContain.filter(n=>!mine.includes(n)).map(lab);
+      if(oc.length||ot.length) w+='<div class="also"><b>Other allergens:</b> '+(oc.length?'contains '+escapeHtml(oc.join(', ').toLowerCase()):'')+(oc.length&&ot.length?'. ':'')+(ot.length?(oc.length?'May contain ':'may contain ')+escapeHtml(ot.join(', ').toLowerCase()):'')+'.</div>';
+    }else{
+      for(const name of r.contains) w+=warningBox(name.toUpperCase()+' ALLERGY WARNING','Possible '+name+' ingredient found in the '+source+'. Check the allergen statement on the pack before eating.','bad');
+      for(const name of r.mayContain) w+=warningBox('MAY CONTAIN '+name.toUpperCase(),'The '+source+' mentions '+name+' as a possible trace. This matters if the allergy is serious.','warn');
+    }
     if(r.adhd.length) w+=warningBox('ADHD / SENSITIVITY WARNING','Detected: '+r.adhd.join(', ')+'. These are informational flags; ingredients do not prove or cause ADHD. Caffeine may affect alertness or sleep in some people.','warn');
     return w;
   }
 
+
+  /* ---------- Additives (E numbers) ----------
+     Gentle information only. The ADHD-linked ones and sulphites have their own warnings above.
+     note = "some people avoid this" and why, in plain words. */
+  const ADDITIVES = {
+    e100:['Curcumin','colour (from turmeric)'], e101:['Riboflavin','colour (vitamin B2)'],
+    e120:['Carmine (cochineal)','red colour','Made from insects, so not vegetarian or vegan.'],
+    e140:['Chlorophyll','green colour'], e141:['Copper chlorophyll','green colour'],
+    e150:['Caramel colour','brown colour'], e150a:['Plain caramel','brown colour'], e150b:['Caustic sulphite caramel','brown colour'],
+    e150c:['Ammonia caramel','brown colour','Some people prefer to avoid the ammonia caramels.'],
+    e150d:['Sulphite ammonia caramel','brown colour (used in colas)','Some people prefer to avoid the ammonia caramels.'],
+    e153:['Vegetable carbon','black colour'], e160a:['Carotenes','orange colour'],
+    e160b:['Annatto','orange colour','Can cause reactions in a few sensitive people.'],
+    e160c:['Paprika extract','red-orange colour'], e160d:['Lycopene','red colour'], e160e:['Beta-apo-8′-carotenal','orange colour'],
+    e161b:['Lutein','yellow colour'], e162:['Beetroot red','red colour'], e163:['Anthocyanins','red-purple colour (from fruit and veg)'],
+    e170:['Calcium carbonate','colour, or to add calcium'],
+    e171:['Titanium dioxide','white colour','Banned in EU food since 2022, so this may be an older or imported product.'],
+    e172:['Iron oxides','colour'], e173:['Aluminium','silver colour'], e175:['Gold','gold colour'],
+    e200:['Sorbic acid','preservative'], e202:['Potassium sorbate','preservative'], e203:['Calcium sorbate','preservative'],
+    e210:['Benzoic acid','preservative','Closely related to sodium benzoate, which some parents avoid.'],
+    e212:['Potassium benzoate','preservative','Closely related to sodium benzoate, which some parents avoid.'],
+    e213:['Calcium benzoate','preservative','Closely related to sodium benzoate, which some parents avoid.'],
+    e234:['Nisin','preservative'], e235:['Natamycin','preservative (on cheese rinds)'], e239:['Hexamine','preservative'],
+    e249:['Potassium nitrite','preservative (cured meats)','Used in processed meats. Health advice is to keep processed meat low.'],
+    e250:['Sodium nitrite','preservative (cured meats)','Used in processed meats. Health advice is to keep processed meat low.'],
+    e251:['Sodium nitrate','preservative (cured meats)','Used in processed meats. Health advice is to keep processed meat low.'],
+    e252:['Potassium nitrate','preservative (cured meats)','Used in processed meats. Health advice is to keep processed meat low.'],
+    e260:['Acetic acid','acidity (vinegar)'], e261:['Potassium acetate','acidity regulator'], e262:['Sodium acetates','acidity regulator'],
+    e263:['Calcium acetate','acidity regulator'], e270:['Lactic acid','acidity regulator'],
+    e280:['Propionic acid','preservative'], e281:['Sodium propionate','preservative'], e282:['Calcium propionate','preservative (bread)'], e283:['Potassium propionate','preservative'],
+    e290:['Carbon dioxide','fizz'], e296:['Malic acid','sharp, fruity taste'], e297:['Fumaric acid','acidity regulator'],
+    e300:['Ascorbic acid','antioxidant (vitamin C)'], e301:['Sodium ascorbate','antioxidant (vitamin C)'], e302:['Calcium ascorbate','antioxidant (vitamin C)'],
+    e304:['Ascorbyl palmitate','antioxidant'], e306:['Tocopherols','antioxidant (vitamin E)'], e307:['Alpha-tocopherol','antioxidant (vitamin E)'],
+    e310:['Propyl gallate','antioxidant','Some people prefer to avoid it.'], e315:['Erythorbic acid','antioxidant'], e316:['Sodium erythorbate','antioxidant'],
+    e319:['TBHQ','antioxidant','Some people prefer to avoid it.'], e320:['BHA','antioxidant','Some people prefer to avoid it.'], e321:['BHT','antioxidant','Some people prefer to avoid it.'],
+    e322:['Lecithins','emulsifier (helps things mix)','Often made from soya. Check the allergen information if soya matters to you.'],
+    e325:['Sodium lactate','acidity regulator'], e326:['Potassium lactate','acidity regulator'], e327:['Calcium lactate','acidity regulator'],
+    e330:['Citric acid','keeps it fresh and tangy'], e331:['Sodium citrates','acidity regulator'], e332:['Potassium citrates','acidity regulator'], e333:['Calcium citrates','acidity regulator'],
+    e334:['Tartaric acid','acidity regulator'], e335:['Sodium tartrates','acidity regulator'], e336:['Potassium tartrates','acidity regulator (cream of tartar)'],
+    e338:['Phosphoric acid','acidity (used in colas)','Found in cola drinks. Lots of cola is not great for teeth.'],
+    e339:['Sodium phosphates','acidity regulator'], e340:['Potassium phosphates','acidity regulator'], e341:['Calcium phosphates','raising agent or anti-caking'],
+    e385:['Calcium disodium EDTA','preservative'],
+    e400:['Alginic acid','thickener (from seaweed)'], e401:['Sodium alginate','thickener (from seaweed)'], e406:['Agar','gelling agent (from seaweed)'],
+    e407:['Carrageenan','thickener (from seaweed)','Some people with sensitive stomachs avoid it.'], e407a:['Processed seaweed','thickener','Some people with sensitive stomachs avoid it.'],
+    e410:['Locust bean gum','thickener'], e412:['Guar gum','thickener'], e413:['Tragacanth','thickener'], e414:['Gum arabic','thickener'],
+    e415:['Xanthan gum','thickener'], e417:['Tara gum','thickener'], e418:['Gellan gum','thickener'],
+    e420:['Sorbitol','sweetener','Can have a laxative effect if you eat a lot.'], e421:['Mannitol','sweetener','Can have a laxative effect if you eat a lot.'],
+    e422:['Glycerol','keeps it moist'], e433:['Polysorbate 80','emulsifier'], e435:['Polysorbate 60','emulsifier'], e440:['Pectin','gelling agent (from fruit)'],
+    e450:['Diphosphates','raising agent'], e451:['Triphosphates','stabiliser'], e452:['Polyphosphates','stabiliser'],
+    e460:['Cellulose','bulking or anti-caking'], e461:['Methyl cellulose','thickener'], e464:['Hydroxypropyl methyl cellulose','thickener'], e466:['Carboxymethyl cellulose','thickener'],
+    e470a:['Fatty acid salts','anti-caking'], e471:['Mono- and diglycerides of fatty acids','emulsifier','Can be made from animal fat, so check if you are vegetarian.'],
+    e472a:['Acetic esters of mono- and diglycerides','emulsifier'], e472b:['Lactic esters of mono- and diglycerides','emulsifier'], e472c:['Citric esters of mono- and diglycerides','emulsifier'],
+    e472e:['DATEM','emulsifier (bread)'], e475:['Polyglycerol esters','emulsifier'], e476:['PGPR','emulsifier (chocolate)'], e477:['Propylene glycol esters','emulsifier'],
+    e481:['Sodium stearoyl lactylate','emulsifier (bread)'], e482:['Calcium stearoyl lactylate','emulsifier'], e491:['Sorbitan monostearate','emulsifier'],
+    e500:['Sodium carbonates','raising agent (bread soda)'], e501:['Potassium carbonates','raising agent'], e503:['Ammonium carbonates','raising agent'],
+    e504:['Magnesium carbonates','anti-caking'], e507:['Hydrochloric acid','acidity regulator'], e508:['Potassium chloride','salt substitute'],
+    e509:['Calcium chloride','firming agent'], e511:['Magnesium chloride','firming agent'], e516:['Calcium sulphate','firming agent'], e524:['Sodium hydroxide','acidity regulator'],
+    e551:['Silicon dioxide','anti-caking'], e552:['Calcium silicate','anti-caking'], e553b:['Talc','anti-caking'], e570:['Fatty acids','glazing or anti-caking'], e575:['Glucono-delta-lactone','acidity regulator'],
+    e620:['Glutamic acid','flavour enhancer'], e621:['Monosodium glutamate (MSG)','flavour enhancer','Some people prefer to avoid it.'],
+    e627:['Disodium guanylate','flavour enhancer','Often made from fish, so check if you are vegetarian.'],
+    e631:['Disodium inosinate','flavour enhancer','Often made from meat or fish, so check if you are vegetarian.'],
+    e635:['Disodium ribonucleotides','flavour enhancer','Often made from meat or fish, so check if you are vegetarian.'],
+    e640:['Glycine','flavour enhancer'], e650:['Zinc acetate','flavour enhancer'],
+    e900:['Dimethylpolysiloxane','anti-foaming'], e901:['Beeswax','glazing agent','Made by bees, so not vegan.'], e903:['Carnauba wax','glazing agent'],
+    e904:['Shellac','glazing agent','Made from insects, so not vegetarian or vegan.'], e920:['L-cysteine','flour treatment','Can be made from animal sources.'],
+    e938:['Argon','packaging gas'], e941:['Nitrogen','packaging gas'], e942:['Nitrous oxide','propellant (squirty cream)'], e948:['Oxygen','packaging gas'],
+    e950:['Acesulfame K','artificial sweetener','An artificial sweetener. Some people prefer to avoid them.'],
+    e952:['Cyclamate','artificial sweetener','An artificial sweetener. Some people prefer to avoid them.'],
+    e954:['Saccharin','artificial sweetener','An artificial sweetener. Some people prefer to avoid them.'],
+    e959:['Neohesperidin DC','sweetener'], e960:['Steviol glycosides (stevia)','sweetener from the stevia plant'], e961:['Neotame','artificial sweetener','An artificial sweetener. Some people prefer to avoid them.'],
+    e962:['Aspartame-acesulfame salt','artificial sweetener','Contains aspartame, which people with PKU must avoid.'],
+    e965:['Maltitol','sweetener','Can have a laxative effect if you eat a lot.'], e966:['Lactitol','sweetener','Can have a laxative effect if you eat a lot.'],
+    e967:['Xylitol','sweetener','Can have a laxative effect if you eat a lot. Very poisonous to dogs.'], e968:['Erythritol','sweetener'],
+    e1103:['Invertase','enzyme'], e1105:['Lysozyme','preservative (from egg)','Made from egg. Check the allergen information if egg matters to you.'],
+    e1200:['Polydextrose','bulking agent'], e1404:['Oxidised starch','modified starch (thickener)'], e1410:['Monostarch phosphate','modified starch (thickener)'],
+    e1412:['Distarch phosphate','modified starch (thickener)'], e1414:['Acetylated distarch phosphate','modified starch (thickener)'], e1420:['Acetylated starch','modified starch (thickener)'],
+    e1422:['Acetylated distarch adipate','modified starch (thickener)'], e1440:['Hydroxypropyl starch','modified starch (thickener)'], e1442:['Hydroxypropyl distarch phosphate','modified starch (thickener)'],
+    e1450:['Starch sodium octenyl succinate','modified starch (thickener)'], e1520:['Propylene glycol','carrier for flavours']
+  };
+  // Additives often written by name instead of number
+  const ADDITIVE_NAMES = [
+    ['citric acid','e330'],['ascorbic acid','e300'],['sodium ascorbate','e301'],['potassium sorbate','e202'],['sorbic acid','e200'],
+    ['sodium nitrite','e250'],['potassium nitrate','e252'],['sodium nitrate','e251'],['monosodium glutamate','e621'],['msg','e621'],
+    ['carrageenan','e407'],['xanthan gum','e415'],['guar gum','e412'],['locust bean gum','e410'],['gellan gum','e418'],['gum arabic','e414'],['pectin','e440'],
+    ['acesulfame k','e950'],['acesulfame potassium','e950'],['saccharin','e954'],['sodium saccharin','e954'],['cyclamate','e952'],['steviol glycosides','e960'],
+    ['sorbitol','e420'],['maltitol','e965'],['xylitol','e967'],['erythritol','e968'],
+    ['sodium bicarbonate','e500'],['sodium hydrogen carbonate','e500'],['bicarbonate of soda','e500'],['ammonium bicarbonate','e503'],
+    ['carmine','e120'],['cochineal','e120'],['annatto','e160b'],['paprika extract','e160c'],['beetroot red','e162'],['anthocyanins','e163'],
+    ['curcumin','e100'],['titanium dioxide','e171'],['calcium carbonate','e170'],['plain caramel','e150a'],['caramel colour','e150'],['caramel color','e150'],
+    ['sulphite ammonia caramel','e150d'],['ammonia caramel','e150c'],
+    ['soya lecithin','e322'],['soy lecithin','e322'],['sunflower lecithin','e322'],['lecithin','e322'],['lecithins','e322'],
+    ['mono and diglycerides of fatty acids','e471'],['mono and diglycerides','e471'],['calcium propionate','e282'],['phosphoric acid','e338'],
+    ['malic acid','e296'],['lactic acid','e270'],['acetic acid','e260'],['sodium citrate','e331'],['sodium citrates','e331'],['trisodium citrate','e331'],
+    ['disodium diphosphate','e450'],['diphosphates','e450'],['tartaric acid','e334'],['polysorbate 80','e433'],['shellac','e904'],['beeswax','e901'],['carnauba wax','e903'],
+    ['disodium guanylate','e627'],['disodium inosinate','e631'],['bha','e320'],['bht','e321'],['tbhq','e319'],['calcium chloride','e509'],['silicon dioxide','e551']
+  ];
+  // These already have their own warnings (ADHD-linked items and sulphites), so they're left out here
+  const ADDITIVES_SHOWN_ELSEWHERE = new Set(['e102','e104','e110','e122','e124','e129','e211','e951','e955','e220','e221','e222','e223','e224','e225','e226','e227','e228']);
+  function additivesFound(text, tags){
+    const t = norm(text);
+    const codes = new Set();
+    for (const m of t.matchAll(/\be(\d{3,4}[a-z]?)\b/g)) codes.add('e'+m[1]);
+    for (const tag of (tags||[])) { const m = String(tag).toLowerCase().match(/e(\d{3,4}[a-z]?)/); if (m) codes.add('e'+m[1]); }
+    for (const [name, code] of ADDITIVE_NAMES) if (has(t, name)) codes.add(code);
+    // "E150" plus a more exact "E150d": keep just the exact one
+    for (const c of [...codes]) if (/^e\d+$/.test(c) && [...codes].some(o => o !== c && o.startsWith(c) && /[a-z]$/.test(o))) codes.delete(c);
+    const out = [];
+    for (const c of codes) {
+      if (ADDITIVES_SHOWN_ELSEWHERE.has(c)) continue;
+      const info = ADDITIVES[c] || ADDITIVES[c.replace(/[a-z]$/, '')] || (/^e14\d\d$/.test(c) ? ['Modified starch','thickener'] : null);
+      out.push({ code: 'E'+c.slice(1), name: info ? info[0] : 'Food additive', job: info ? info[1] : 'look it up if you are unsure', note: info && info[2] ? info[2] : '' });
+    }
+    return out.sort((a, b) => (b.note ? 1 : 0) - (a.note ? 1 : 0) || a.code.localeCompare(b.code, undefined, { numeric: true }));
+  }
+  function additivesHtml(list){
+    if (!list.length) return '<div class="add-none">No additives (E numbers) found in the listed information.</div>';
+    const flagged = list.filter(a => a.note).length;
+    return '<div class="additives"><div class="add-head">ℹ️ '+list.length+' additive'+(list.length===1?'':'s')+' found'+(flagged?' · '+flagged+' that some people avoid':'')+'</div>'+
+      list.map(a => '<div class="add-row'+(a.note?' flag':'')+'"><span class="add-code">'+escapeHtml(a.code)+'</span><span class="add-text"><b>'+escapeHtml(a.name)+'</b> · '+escapeHtml(a.job)+
+        (a.note ? '<span class="add-note">'+escapeHtml(a.note)+'</span>' : '')+'</span></div>').join('')+
+      '<div class="add-foot">Additives are approved for use in food in the EU. This is here so you know what’s in it.</div></div>';
+  }
 
   /* ---------- Pregnancy alerts ----------
      Based on HSE advice: www2.hse.ie/pregnancy-birth/keeping-well/food-drink/what-to-avoid/
@@ -327,6 +533,11 @@
       '<ul>'+found.map(f=>'<li class="lvl-'+f.lvl+'"><b>'+escapeHtml(f.title)+'</b><span>'+escapeHtml(f.body)+'</span></li>').join('')+'</ul>'+
       '<div class="preg-foot">Based on HSE pregnancy advice. Some foods are considered safe once cooked until steaming hot. Food Detective can miss things or get them wrong, so always read the label and ask your GP or midwife if unsure.</div></div>';
   }
+  function alertFor(preg, r){
+    if(mineHit(r)){ try{if(navigator.vibrate)navigator.vibrate([250,120,250]);}catch(e){} beep('adhd'); setTimeout(()=>beep('adhd'),480); return; }
+    if(pregnancyAlert(preg)) return;
+    if(r.adhd.length) beep('adhd'); else if(r.contains.length||r.mayContain.length) beep('normal');
+  }
   function pregnancyAlert(found){
     if(!pregOn()||!found.some(f=>f.lvl==='avoid'))return false;
     try{if(navigator.vibrate)navigator.vibrate([200,100,200]);}catch(e){}
@@ -348,10 +559,14 @@
   /* ---------- Screens ---------- */
   function showOnly(name){
     [els.scannerCard,els.photoCard,els.loadingCard,els.resultCard,els.textResultCard].forEach(x=>x.classList.add('hidden'));
+    document.body.classList.toggle('task', !!name);
     if(name) $(name).classList.remove('hidden');
+    window.scrollTo(0,0);
+    if(!name) renderRecent();
   }
   function stopCamera(){
     scanning=false; if(stream){stream.getTracks().forEach(t=>t.stop());stream=null;} els.video.srcObject=null;
+    torchOn=false; els.torchBtn.classList.add('hidden'); els.torchBtn.classList.remove('on'); els.torchBtn.textContent='🔦 TORCH';
   }
 
   /* ---------- Barcode scanning ---------- */
@@ -402,7 +617,25 @@
       if(!stream) return; // closed while loading
     }
     els.scanStatus.textContent='Point the camera at a barcode.';
+    setupTorch();
     scanning=true; scanLoop();
+  }
+  // Torch: only shown on phones whose camera supports it
+  function setupTorch(){
+    try{
+      const track=stream&&stream.getVideoTracks()[0];
+      const caps=track&&track.getCapabilities?track.getCapabilities():null;
+      if(caps&&caps.torch) els.torchBtn.classList.remove('hidden');
+    }catch(e){}
+  }
+  async function toggleTorch(){
+    const track=stream&&stream.getVideoTracks()[0]; if(!track)return;
+    try{
+      await track.applyConstraints({advanced:[{torch:!torchOn}]});
+      torchOn=!torchOn;
+      els.torchBtn.classList.toggle('on',torchOn);
+      els.torchBtn.textContent=torchOn?'🔦 TORCH OFF':'🔦 TORCH';
+    }catch(e){ els.torchBtn.classList.add('hidden'); }
   }
   async function scanLoop(){
     if(!scanning)return;
@@ -420,12 +653,12 @@
     els.homeStatus.textContent='';
     showOnly('loadingCard'); els.loadingText.textContent='Checking the food database...';
     try{
-      const url='https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json?fields=code,product_name,product_name_en,generic_name,generic_name_en,categories_tags,categories,categories_hierarchy,food_groups_tags,pnns_groups_1,pnns_groups_2,labels,brands,ingredients_text,ingredients_text_en,allergens,allergens_tags,traces,traces_tags,labels_tags,nutriments';
+      const url='https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json?fields=code,product_name,product_name_en,generic_name,generic_name_en,categories_tags,categories,categories_hierarchy,food_groups_tags,pnns_groups_1,pnns_groups_2,labels,brands,ingredients_text,ingredients_text_en,additives_tags,allergens,allergens_tags,traces,traces_tags,labels_tags,nutriments';
       const r=await fetch(url,{headers:{'Accept':'application/json'}});
       if(!r.ok && r.status!==404)throw new Error('network');
       const data=await r.json();
       if(data.status!==1 || !data.product || !(data.product.product_name||data.product.product_name_en||data.product.ingredients_text||data.product.ingredients_text_en)){
-        openPhoto(); els.homeStatus.textContent='I found the barcode, but not enough product information. Please scan the ingredients list instead.'; return;
+        pendingProduct=null; openPhoto("I couldn't find this product in the food database. Take a picture of the ingredients and I'll check them for you."); return;
       }
       renderProduct(data.product,code);
     }catch(e){
@@ -445,6 +678,16 @@
     const tracesText=[p.traces||'',(p.traces_tags||[]).join(' ')].join(' . ');
     const r=analyse(containsText,tracesText);
     const preg=pregnancyCheck({text:[p.product_name_en||'',p.product_name||'',p.generic_name_en||'',p.generic_name||'',containsText].join(' . '),categories:[].concat(p.categories_tags||[],p.categories_hierarchy||[],p.food_groups_tags||[],p.labels_tags||[],[p.categories||'',p.labels||'',p.pnns_groups_1||'',p.pnns_groups_2||'']).join(' '),alcohol:alcoholOf(p.nutriments),name:[p.product_name_en||'',p.product_name||'',p.generic_name_en||'',p.generic_name||''].join(' . '),brand:p.brands||''});
+    const hasIngredients=!!(p.ingredients_text_en||p.ingredients_text);
+    pendingProduct=hasIngredients?null:{name:p.product_name_en||p.product_name||'',brand:p.brands||''};
+    els.missingBox.classList.toggle('hidden',hasIngredients);
+    els.additives.innerHTML=(!hasIngredients&&!(p.additives_tags||[]).length)?'<div class="add-none">Nothing to check yet. Take a picture of the ingredients above.</div>':additivesHtml(additivesFound(p.ingredients_text_en||p.ingredients_text||'',p.additives_tags));
+    if(!hasIngredients){
+      // Only the name and brand are known, so only show real findings, never "all clear"
+      const found=warningsHtml(r,'product information');
+      const pregPart=preg.length?pregnancyHtml(preg):'';
+      els.warnings.innerHTML=pregPart+(found||warningBox('Not checked yet','Without the ingredients I can only check the name, so I can\'t tell you it\'s safe. Take a picture of the ingredients above.','warn'));
+    } else
     els.warnings.innerHTML=pregnancyHtml(preg)+(warningsHtml(r,'product information')||warningBox('No listed warnings found','No matching major-allergen or ADHD/sensitivity terms were found in the available database text. This is not proof that the food is safe.',''));
     const labels=(p.labels_tags||[]).join(' ').toLowerCase();
     const tags=[];
@@ -463,11 +706,16 @@
     if(Number.isFinite(n['salt_100g']))nt.push('🧂 '+round1(n['salt_100g'])+'g salt/100g');
     els.nutrition.innerHTML=nt.length?nt.map(x=>'<span class="pill">'+escapeHtml(x)+'</span>').join(''):'<span class="tag">Nutrition not available</span>';
     showOnly('resultCard');
-    if(pregnancyAlert(preg)){} else if(r.adhd.length)beep('adhd'); else if(r.contains.length||r.mayContain.length)beep('normal');
+    addRecent({code,name:p.product_name_en||p.product_name||'Unknown food',brand:p.brands||'',
+      level:(mineHit(r)||preg.some(f=>f.lvl==='avoid'))?'bad':((r.contains.length||r.mayContain.length||r.adhd.length||preg.length)?'warn':'')});
+    alertFor(preg, r);
   }
 
   /* ---------- Ingredient photo ---------- */
-  function openPhoto(){stopCamera();showOnly('photoCard');els.ocrStatus.textContent='';els.photoInput.value='';els.photoPreview.classList.add('hidden');}
+  function openPhoto(note){
+    stopCamera();showOnly('photoCard');els.ocrStatus.textContent='';els.photoInput.value='';els.photoPreview.classList.add('hidden');
+    els.photoNote.textContent=typeof note==='string'?note:''; els.photoNote.classList.toggle('hidden',typeof note!=='string'||!note);
+  }
   async function runOCR(file){
     if(!file)return;
     if(previewUrl)URL.revokeObjectURL(previewUrl);
@@ -486,26 +734,57 @@
   function loadScript(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.appendChild(s);});}
   function renderOCR(text){
     const r=analyse(text.replace(/\n/g,' '),'');
-    els.ocrSummary.textContent='I read the photo as best I could. Please verify every word against the package.';
-    const preg=pregnancyCheck({text:text.replace(/\n/g,' ')});
+    const pp=pendingProduct;
+    els.ocrSummary.textContent=(pp&&pp.name?'Ingredients for '+pp.name+'. ':'')+'I read the photo as best I could. Please verify every word against the package.';
+    const preg=pregnancyCheck({text:text.replace(/\n/g,' '),name:pp?pp.name:'',brand:pp?pp.brand:''});
+    els.ocrAdditives.innerHTML=additivesHtml(additivesFound(text,[]));
     els.ocrWarnings.innerHTML=pregnancyHtml(preg)+(warningsHtml(r,'photographed text')||warningBox('No listed terms found','No matching terms were detected in the OCR text. That does not prove the product is allergy-safe.',''));
     els.ocrText.textContent=text;showOnly('textResultCard');
-    if(pregnancyAlert(preg)){} else if(r.adhd.length)beep('adhd'); else if(r.contains.length||r.mayContain.length)beep('normal');
+    alertFor(preg, r);
   }
-  function reset(){stopCamera();showOnly(null);els.homeStatus.textContent='';els.barcodeInput.value='';}
+  function reset(){stopCamera();pendingProduct=null;showOnly(null);els.homeStatus.textContent='';els.barcodeInput.value='';}
+
+  /* ---------- Recent scans (last 10, saved on this phone) ---------- */
+  const RECENT_KEY='fd_recent_scans';
+  function getRecent(){try{const v=JSON.parse(localStorage.getItem(RECENT_KEY)||'[]');return Array.isArray(v)?v:[];}catch(e){return [];}}
+  function addRecent(item){
+    const list=getRecent().filter(x=>x.code!==item.code);
+    list.unshift({...item,at:Date.now()});
+    try{localStorage.setItem(RECENT_KEY,JSON.stringify(list.slice(0,10)));}catch(e){}
+  }
+  function ago(t){const m=Math.round((Date.now()-t)/60000);if(m<1)return 'just now';if(m<60)return m+' min ago';const h=Math.round(m/60);if(h<24)return h+' hr ago';const d=Math.round(h/24);return d===1?'yesterday':d+' days ago';}
+  function renderRecent(){
+    const list=getRecent();
+    $('recentBox').classList.toggle('hidden',!list.length);
+    $('recentList').innerHTML=list.map(x=>'<button type="button" class="recent-row" data-code="'+escapeHtml(x.code)+'"><span class="dot '+(x.level||'')+'"></span><span class="rn"><b>'+escapeHtml(x.name)+'</b><small>'+escapeHtml((x.brand?x.brand+' · ':'')+ago(x.at))+'</small></span><span aria-hidden="true">›</span></button>').join('');
+    $('recentList').querySelectorAll('[data-code]').forEach(b=>b.addEventListener('click',()=>lookup(b.dataset.code)));
+  }
+  function renderMine(){
+    const mine=myAllergens();
+    $('mineGrid').innerHTML=ALLERGENS.map(([k])=>'<label><input type="checkbox" value="'+escapeHtml(k)+'"'+(mine.includes(k)?' checked':'')+'>'+escapeHtml(ALLERGEN_LABELS[k]||k)+'</label>').join('');
+    $('mineSummary').textContent=mine.length?mine.map(k=>ALLERGEN_LABELS[k]||k).join(', '):'None chosen';
+    $('mineGrid').querySelectorAll('input').forEach(i=>i.addEventListener('change',()=>{
+      const now=[...$('mineGrid').querySelectorAll('input:checked')].map(x=>x.value); saveMine(now);
+      $('mineSummary').textContent=now.length?now.map(k=>ALLERGEN_LABELS[k]||k).join(', '):'None chosen';
+    }));
+  }
 
   const pregToggle=$('pregToggle');
   pregToggle.checked=pregOn();
   pregToggle.addEventListener('change',()=>{try{localStorage.setItem(PREG_KEY,pregToggle.checked?'on':'off');}catch(e){}});
-  $('barcodeBtn').addEventListener('click',startBarcode);
+  $('barcodeBtn').addEventListener('click',()=>{pendingProduct=null;startBarcode();});
+  els.torchBtn.addEventListener('click',toggleTorch);
+  $('missingPhotoBtn').addEventListener('click',()=>{const pp=pendingProduct;openPhoto('');pendingProduct=pp;els.photoInput.click();});
+  $('clearRecent').addEventListener('click',()=>{try{localStorage.removeItem(RECENT_KEY);}catch(e){} renderRecent();});
+  renderMine(); renderRecent();
   $('stopScanBtn').addEventListener('click',()=>{stopCamera();showOnly(null);});
   $('manualBtn').addEventListener('click',()=>lookup(els.barcodeInput.value));
   els.barcodeInput.addEventListener('keydown',e=>{if(e.key==='Enter')lookup(els.barcodeInput.value);});
-  $('ingredientBtn').addEventListener('click',openPhoto);
+  $('ingredientBtn').addEventListener('click',()=>{pendingProduct=null;openPhoto();});
   $('takePhotoBtn').addEventListener('click',()=>els.photoInput.click());
   els.photoInput.addEventListener('change',e=>runOCR(e.target.files[0]));
   $('newScanBtn').addEventListener('click',reset);
-  $('ocrAgainBtn').addEventListener('click',openPhoto);
+  $('ocrAgainBtn').addEventListener('click',()=>{pendingProduct=null;openPhoto();});
   $('resetBtn').addEventListener('click',reset);
   // Turn the camera off if the app is put in the background
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&stream){stopCamera();showOnly(null);}});

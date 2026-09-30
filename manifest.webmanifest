@@ -10,6 +10,12 @@
   "theme_color": "#10131f",
   "icons": [
     {
+      "src": "thefooddetectiveicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "thefooddetectiveicon.png",
       "sizes": "512x512",
       "type": "image/png",
