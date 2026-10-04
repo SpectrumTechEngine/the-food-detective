@@ -9,6 +9,8 @@
 <link rel="apple-touch-icon" href="thefooddetectiveicon.png">
 <!-- Lets phones install this as a proper app (these files sit next to index.html) -->
 <link rel="manifest" href="manifest.webmanifest">
+<!-- Usage numbers and owner tools, shared by every Spectrum Tech Engine app -->
+<script src="https://thespectrumtechengine.com/ste-owner.js" data-app="the-food-detective" defer></script>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Food Detective">
@@ -647,17 +649,22 @@ body.task .top, body.task #homeCard{display:none}
   }
 
   /* ---------- Product lookup ---------- */
+  // Usage numbers for the owner (ste-owner.js on the website). Only counts that something happened, never what food or allergy
+  function ste(f,...a){try{if(window.STE&&window.STE[f])window.STE[f](...a);}catch(e){}}
+
   async function lookup(code){
     code=String(code).replace(/\D/g,'');
     if(!code){els.homeStatus.textContent='Please enter a valid barcode.';return;}
     els.homeStatus.textContent='';
     showOnly('loadingCard'); els.loadingText.textContent='Checking the food database...';
+    ste('track','play'); ste('detail','barcode-checked');
     try{
       const url='https://world.openfoodfacts.org/api/v2/product/'+encodeURIComponent(code)+'.json?fields=code,product_name,product_name_en,generic_name,generic_name_en,categories_tags,categories,categories_hierarchy,food_groups_tags,pnns_groups_1,pnns_groups_2,labels,brands,ingredients_text,ingredients_text_en,additives_tags,allergens,allergens_tags,traces,traces_tags,labels_tags,nutriments';
       const r=await fetch(url,{headers:{'Accept':'application/json'}});
       if(!r.ok && r.status!==404)throw new Error('network');
       const data=await r.json();
       if(data.status!==1 || !data.product || !(data.product.product_name||data.product.product_name_en||data.product.ingredients_text||data.product.ingredients_text_en)){
+        ste('detail','product-not-found');
         pendingProduct=null; openPhoto("I couldn't find this product in the food database. Take a picture of the ingredients and I'll check them for you."); return;
       }
       renderProduct(data.product,code);
@@ -718,6 +725,7 @@ body.task .top, body.task #homeCard{display:none}
   }
   async function runOCR(file){
     if(!file)return;
+    ste('track','play'); ste('detail','ingredients-photo-read');
     if(previewUrl)URL.revokeObjectURL(previewUrl);
     previewUrl=URL.createObjectURL(file);
     els.photoPreview.src=previewUrl;els.photoPreview.classList.remove('hidden');els.ocrStatus.textContent='Reading ingredients...';
