@@ -1,0 +1,10 @@
+{
+  "appId": "com.thespectrumtechengine.fooddetective",
+  "appName": "Food Detective",
+  "webDir": "www",
+  "backgroundColor": "#0f0c29",
+  "server": {
+    "url": "https://thespectrumtechengine.com/the-food-detective/",
+    "errorPath": "index.html"
+  }
+}
